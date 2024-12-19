@@ -39,7 +39,14 @@ Once you have everything working locally, push your code to GitHub and setup a C
 Setup a reverse proxy using Nginx to allow you to access the application via `http://your_domain.com.` You should use `docker-compose` to setup the reverse proxy.
 
 
-## To Run 
+After completing this project, you will have a good understanding of Docker Compose, multi-container applications, CI/CD pipelines, and more.
+
+## To Run Locally
+
+- Step 1
+
+
+## To Run CI/CD
 
 - Setup the following repository secrets:
     - DO_TOKEN : Digital Ocean access token
@@ -59,5 +66,3 @@ Setup a reverse proxy using Nginx to allow you to access the application via `ht
 ## Lessons Learned
 
 - Lesson 1
-
-
