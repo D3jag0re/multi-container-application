@@ -1,0 +1,8 @@
+services:
+  api:
+    build: ./api
+    ports:
+      - "4001:4000"
+  mongo:
+    image: mongo
+    restart: always

@@ -1,0 +1,17 @@
+{
+    "name": "expressjs-todo",
+    "version": "1.0.0",
+    "description": "",
+    "main": "./source/app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "./source/app.js"
+    },
+    "author": "D3jag0re (https://github.com/D3jag0re) ",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.18.2",
+        "basic-auth": "2.0.1",
+        "dotenv": "16.4.7"
+    }
+}
