@@ -55,3 +55,50 @@ jobs:
         echo "ipv4=$(echo $DROPLET_INFO | jq -r '.ipv4')" >> $GITHUB_OUTPUT
         echo "name=$(echo $DROPLET_INFO | jq -r '.name')" >> $GITHUB_OUTPUT
        working-directory: ./terraform
+
+ ansible:
+   runs-on: ubuntu-latest
+   needs: build_droplet
+
+   steps: 
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+  
+
+    - name: Install Ansible
+      run: |
+       sudo apt update
+       sudo apt install software-properties-common
+       sudo add-apt-repository --yes --update ppa:ansible/ansible
+       sudo apt install ansible
+
+    - name: rsync deployments
+      uses: burnett01/rsync-deployments@7.0.1
+      with:
+        switches: -avzr --delete
+        path: ./
+        remote_path: /tmp/
+        remote_host: ${{ needs.build_droplet.outputs.ipv4 }}
+        remote_user: root
+        remote_key: ${{ secrets.DO_SSH_PRIVATE_KEY }} 
+
+    - name: Run Ansible Playbook
+      uses: dawidd6/action-ansible-playbook@v2
+      with:
+        # Required, playbook filepath
+        playbook: setup.yml
+        # Optional, directory where playbooks live
+        directory: ./ansible 
+        # Optional, SSH private key
+        key: ${{ secrets.DO_SSH_PRIVATE_KEY }} 
+        # Optional, literal inventory file contents
+        inventory: |
+          [web]
+          ${{ needs.build_droplet.outputs.ipv4 }} ansible_user=root
+        # Optional, SSH known hosts file content
+        #known_hosts: |
+        #  example.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
+        # Optional, additional flags to pass to ansible-playbook
+        #options: |
+        #  --inventory .hosts
