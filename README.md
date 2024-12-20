@@ -56,11 +56,14 @@ After completing this project, you will have a good understanding of Docker Comp
     - DO_SSH_PRIVATE_KEY : Keypair to be used for VM
 
 - Run workflow: This will build and install everything.
-- Access webpage from `http://<ip_address>`
+- Access todo app from `http://<ip_address>`
 
 ## Notes 
 
-- Note 1
+- Executable permissions.
+- Ansible install ocker & compose properly 
+- Get app to launch correctly 
+- DB container seems good and is writing to host VM 
 
 
 ## Lessons Learned
