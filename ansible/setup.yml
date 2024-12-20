@@ -1,0 +1,8 @@
+---
+- name: Deploy the application stack
+  hosts: all
+  become: yes
+
+  roles:
+    - base
+    - docker

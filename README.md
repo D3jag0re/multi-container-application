@@ -28,7 +28,7 @@ You are required to dockerize the API and have a ``docker-compose.yml`` file whi
 
 ### Requirement #2 = Setup a Remote Server 
 
-Setup a remote server on Digital Ocean, AWS or any other cloud provider. You should use terraform to create the server and Ansible to configure it properly i.e. setup docker, docker-compose, pulling the image from Docker Hub and running the containers.
+Setup a remote server on Digital Ocean, AWS or any other cloud provider. You should use `terraform` to create the server and `Ansible` to configure it properly i.e. setup docker, docker-compose, pulling the image from Docker Hub and running the containers.
 
 ### Requirement #3 - Setup a CI/CD Pipeline 
 
@@ -65,4 +65,4 @@ After completing this project, you will have a good understanding of Docker Comp
 
 ## Lessons Learned
 
-- Lesson 1
+- Running CMD ["npm", "start"] instead of CMD ["node", "app.js"] offers more flexibility and is more of a standard practice. 

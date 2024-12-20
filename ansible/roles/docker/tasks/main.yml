@@ -1,0 +1,11 @@
+---
+- name: Install Docker
+  apt:
+    name: docker
+    state: present
+
+- name: Install Docker Compose 
+  apt: 
+    name: docker-compose-plugin
+    state: present
+
