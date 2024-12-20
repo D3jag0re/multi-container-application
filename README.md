@@ -66,3 +66,4 @@ After completing this project, you will have a good understanding of Docker Comp
 ## Lessons Learned
 
 - Running CMD ["npm", "start"] instead of CMD ["node", "app.js"] offers more flexibility and is more of a standard practice. 
+- Make sure yu push your changes before wondering why a build failed in the exact same way 
