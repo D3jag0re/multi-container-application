@@ -78,7 +78,7 @@ jobs:
       with:
         switches: -avzr --delete
         path: ./
-        remote_path: /tmp/
+        remote_path: /temp/
         remote_host: ${{ needs.build_droplet.outputs.ipv4 }}
         remote_user: root
         remote_key: ${{ secrets.DO_SSH_PRIVATE_KEY }} 
