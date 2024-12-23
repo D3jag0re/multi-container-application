@@ -76,3 +76,5 @@ After completing this project, you will have a good understanding of Docker Comp
 - blank .env file might have been causing issues when setting env variable in `docker-compose.yml` file 
 - volumes issue and ownership 
 - cant find module express 
+
+- while I understand the usefulness for development purposes, defining volumes in my docker-compose caused me lots of issues with overwriting etc. 

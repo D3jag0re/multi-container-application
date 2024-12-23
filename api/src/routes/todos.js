@@ -1,57 +1,53 @@
 const express = require('express'); // Import Express framework
-const app = express();              // Initialize Express app
-const router=require('express').Router()
-const Todo_model=require('../models/todo')
+const router = require('express').Router();
+const Todo_model = require('../models/todo');
 
 // Hello World for Testing
 router.get('/hello', (req, res) => {
     res.send('Hello, World!');
 });
 
-// Get all Todo's
-router.get('/add/todo',(req,res)=>{
-    const {todo}=req.body;
-    const newTodo=new Todo_model({todo,user_,done:"0"})
-    if(todo==""){
-        res.redirect('/')
+// Add Todo
+router.post('/add/todo', async (req, res) => {
+    const { todo } = req.body;
+
+    if (!todo) {
+        return res.status(400).json({ error: "Todo cannot be empty" });
     }
-    newTodo.save()
-    .then(()=>{
-        console.log("done")
-        res.redirect('/')
-    })
-    .catch(err=>console.log(err))
-})
 
+    const newTodo = new Todo_model({ todo, user: "default_user", done: "0" });
 
-// Deleting Todo
-.get("/delete/todo/:_id",(req,res)=>{
-    const {_id}=req.params;
-    Todo_model.deleteOne({_id})
-    .then(()=>{
-        console.log("deleted")
-        res.redirect('/')
-    })
-    .catch((err)=>console.log(err));
-})
-
-// Mark Done
-.get("/update/todo/:_id",(req,res)=>{
-    const {_id}=req.params;
-    const info=Todo_model.find();
-    console.log(info)
-    Todo_model.updateOne({_id}, { done:"1"})
-    .then(()=>{
-        console.log("deleted")
-        res.redirect('/')
-    })
-    .catch((err)=>console.log(err));
+    try {
+        await newTodo.save();
+        res.json({ message: 'Todo added successfully' });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Failed to add todo' });
+    }
 });
 
-module.exports=router;
+// Delete Todo
+router.delete("/delete/todo/:_id", async (req, res) => {
+    const { _id } = req.params;
+    try {
+        await Todo_model.deleteOne({ _id });
+        res.json({ message: 'Todo deleted successfully' });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Failed to delete todo' });
+    }
+});
 
+// Mark Todo as Done
+router.put("/update/todo/:_id", async (req, res) => {
+    const { _id } = req.params;
+    try {
+        await Todo_model.updateOne({ _id }, { done: "1" });
+        res.json({ message: 'Todo marked as done' });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Failed to update todo' });
+    }
+});
 
-
-
-
-
+module.exports = router;
