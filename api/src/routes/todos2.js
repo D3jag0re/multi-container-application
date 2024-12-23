@@ -1,5 +1,4 @@
 const express = require('express'); // Import Express framework
-const app = express();              // Initialize Express app
 const router=require('express').Router()
 const Todo_model=require('../models/todo')
 
