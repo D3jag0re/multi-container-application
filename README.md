@@ -71,3 +71,8 @@ After completing this project, you will have a good understanding of Docker Comp
 
 - Running CMD ["npm", "start"] instead of CMD ["node", "app.js"] offers more flexibility and is more of a standard practice. 
 - Make sure yu push your changes before wondering why a build failed in the exact same way 
+- Was wondering why docker was naming my one container `temp-api` when I defined it as `express-api` turns out "When building an image from a directory (like ./api), Docker Compose automatically tags the image using the folder name of the directory where the Compose file resides."
+
+- blank .env file might have been causing issues when setting env variable in `docker-compose.yml` file 
+- volumes issue and ownership 
+- cant find module express 

@@ -1,6 +1,9 @@
 FROM node:latest
 WORKDIR /usr/src/app
 COPY . /usr/src/app/
+# Ensure permissions inside container
+RUN chmod +x ./src/app.js 
 RUN npm install 
+RUN chown -R node:node node_modules
 EXPOSE 3000
 CMD ["npm", "start"]

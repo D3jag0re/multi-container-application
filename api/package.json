@@ -2,10 +2,10 @@
     "name": "expressjs-todo",
     "version": "1.0.0",
     "description": "",
-    "main": "./source/app.js",
+    "main": "./src/app.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "./src/app.js"
+        "start": "node ./src/app.js"
     },
     "author": "D3jag0re (https://github.com/D3jag0re) ",
     "license": "ISC",
