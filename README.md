@@ -79,3 +79,5 @@ After completing this project, you will have a good understanding of Docker Comp
 
 - while I understand the usefulness for development purposes, defining volumes in my docker-compose caused me lots of issues with overwriting etc. 
 - Should have spent more time learning the basics of js and perhaps doing a todo list without an external DB, then with, then containerizing. Jumped in too deep which made troubleshooting harder for the js side (especially as I would often get no errors)
+- For ex. Troubleshooted so far, had to bend to our AI overloards to discover I was missing a crucial middleware part.
+- 

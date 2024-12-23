@@ -7,4 +7,3 @@ RUN npm install
 RUN chown -R node:node node_modules
 EXPOSE 4000
 CMD ["npm", "start"]
-CMD ["tail", "-f", "/dev/null"]

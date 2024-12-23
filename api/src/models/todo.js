@@ -7,10 +7,12 @@ const Todoschema=new mongoose.Schema({
     user_:{
         type:String,
         required: true,
+        default: "default_user",
           },
     done:{
         type:String,
         required: true,
+        default: "0"
     }
 
 });
