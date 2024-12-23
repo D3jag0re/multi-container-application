@@ -3,6 +3,10 @@ const app = express();              // Initialize Express app
 const router=require('express').Router()
 const Todo_model=require('../models/todo')
 
+// Hello World for Testing
+router.get('/hello', (req, res) => {
+    res.send('Hello, World!');
+});
 
 // Get all Todo's
 router.get('/add/todo',(req,res)=>{
