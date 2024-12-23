@@ -1,11 +1,35 @@
 ---
-- name: Install Docker
-  apt:
-    name: docker
-    state: present
+- name: Setup Docker apt repo
+  block:
+    - name: Update apt package index
+      apt:
+        update_cache: yes
 
-- name: Install Docker Compose 
+    - name: Install required packages
+      apt:
+        name:
+          - ca-certificates
+          - curl
+        state: present
+
+    - name: Create directory for Docker keyrings
+      file:
+        path: /etc/apt/keyrings
+        state: directory
+        mode: '0755'
+
+    - name: Download Docker GPG key
+      get_url:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        dest: /etc/apt/keyrings/docker.asc
+        mode: '0644'
+
+- name: Install Docker Packages      
   apt: 
-    name: docker-compose-plugin
-    state: present
+    name: 
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-buildx-plugin
+      - docker-compose-plugin   
 
