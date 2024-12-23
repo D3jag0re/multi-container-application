@@ -56,7 +56,7 @@ After completing this project, you will have a good understanding of Docker Comp
     - DO_SSH_PRIVATE_KEY : Keypair to be used for VM
 
 - Run workflow: This will build and install everything.
-- Access todo app from `http://<ip_address>`
+- Access todo app test page from `http://<ip_address>:4001/hello`
 
 ## Notes 
 
@@ -80,4 +80,20 @@ After completing this project, you will have a good understanding of Docker Comp
 - while I understand the usefulness for development purposes, defining volumes in my docker-compose caused me lots of issues with overwriting etc. 
 - Should have spent more time learning the basics of js and perhaps doing a todo list without an external DB, then with, then containerizing. Jumped in too deep which made troubleshooting harder for the js side (especially as I would often get no errors)
 - For ex. Troubleshooted so far, had to bend to our AI overloards to discover I was missing a crucial middleware part.
-- 
+
+- Got app up and running but then was getting errors for DB connectivity. 
+    - exec into container `docker exec -it <container_name> sh`
+    - could ping `mongo` but client was not found ... 
+    - However running a simple connetion test (see below) resulted in `MongoDB connected successfully`
+
+
+
+- Connection Test: 
+
+const mongoose = require('mongoose');
+
+const mongoURI = process.env.MONGO_URI || 'mongodb://mongo:27017/mydatabase';
+
+mongoose.connect(mongoURI)
+    .then(() => console.log('MongoDB connected successfully'))
+    .catch(err => console.error('MongoDB connection error:', err));
