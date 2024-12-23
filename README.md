@@ -64,6 +64,7 @@ After completing this project, you will have a good understanding of Docker Comp
 - Ansible install ocker & compose properly 
 - Get app to launch correctly 
 - DB container seems good and is writing to host VM 
+- using `docker compose` instead of `docker-compose`
 
 
 ## Lessons Learned
