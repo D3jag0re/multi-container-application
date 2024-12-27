@@ -50,4 +50,18 @@ router.put("/update/todo/:_id", async (req, res) => {
     }
 });
 
+// Get all Todos
+router.get('/todos', async (req, res) => {
+    try {
+        // Fetch all todos from the database
+        const todos = await Todo_model.find();
+
+        // Return todos as JSON response
+        res.json(todos);
+    } catch (err) {
+        console.error('Error fetching todos:', err);
+        res.status(500).json({ error: 'Failed to fetch todos' });
+    }
+});
+
 module.exports = router;

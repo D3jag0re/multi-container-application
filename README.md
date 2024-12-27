@@ -85,6 +85,7 @@ After completing this project, you will have a good understanding of Docker Comp
     - exec into container `docker exec -it <container_name> sh`
     - could ping `mongo` but client was not found ... 
     - However running a simple connetion test (see below) resulted in `MongoDB connected successfully`
+    - FIX: Forgot to actually have the app connect...created utils/db.js 
 
 
 
