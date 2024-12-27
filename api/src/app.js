@@ -3,7 +3,7 @@ const express = require('express'); // Import Express framework
 const app = express();              // Initialize Express app
 const router=require('express').Router() // Create router
 const todo_model = require('./models/todo') // Import model
-const connectDB = require("../utils/db")
+const connectDB = require('./utils/db')
 
 // Middleware for parsing request bodies
 app.use(express.json());
