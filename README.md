@@ -96,7 +96,7 @@ After completing this project, you will have a good understanding of Docker Comp
 
 - Data is persisting with container re-creations but new code change overwrites `./mongo-data` causing the data to be lost 
     - `mongo-data` in `.gitignore` - issue still persists
-    - 
+    - Mapped to a directory outside of `/temp` (where the code gets copied) - now works as expected 
 
 - Connection Test: 
 
