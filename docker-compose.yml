@@ -19,4 +19,4 @@ services:
     restart: always
     container_name: mongo-db
     volumes: 
-      - ./mongo-data:/data/db # Maps to a folder on the host machine
+      - /mongo-data:/data/db # Maps to a folder on the host machine
