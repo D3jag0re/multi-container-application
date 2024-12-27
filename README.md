@@ -58,6 +58,13 @@ After completing this project, you will have a good understanding of Docker Comp
 - Run workflow: This will build and install everything.
 - Access todo app test page from `http://<ip_address>:4001/hello`
 
+## cURL Commands
+
+- To get : `curl -X GET http://<localhost_or_ip>:4001/todos`
+- To add : `curl -X POST http://<localhost_or_ip>/add/todo -H "Content-Type: application/json" -d '{"todo":"Buy groceries"}'`
+- To mark done: `curl -X PUT http://<localhost_or_ip>:4001/update/todo/<todo_id>`
+- To delete: `curl -X DELETE http://<localhost_or_ip>:4001/delete/todo/<todo_id>`
+
 ## Notes 
 
 - Executable permissions.
@@ -87,6 +94,8 @@ After completing this project, you will have a good understanding of Docker Comp
     - However running a simple connetion test (see below) resulted in `MongoDB connected successfully`
     - FIX: Forgot to actually have the app connect...created utils/db.js 
 
+- Data is persisting with container re-creations but new code change overwrites `./mongo-data` causing the data to be lost 
+    - Fix: 
 
 
 - Connection Test: 
