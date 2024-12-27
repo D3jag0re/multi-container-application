@@ -1,5 +1,5 @@
 ---
 - name: Run Docker Compose 
   shell: |
-    docker compose up -d 
+    docker compose -f /temp/docker-compose.yml up -d 
 
