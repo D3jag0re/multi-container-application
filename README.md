@@ -95,8 +95,7 @@ After completing this project, you will have a good understanding of Docker Comp
     - FIX: Forgot to actually have the app connect...created utils/db.js 
 
 - Data is persisting with container re-creations but new code change overwrites `./mongo-data` causing the data to be lost 
-    - Fix: 
-
+    - Fix: `mongo-data` in `.gitignore`
 
 - Connection Test: 
 
