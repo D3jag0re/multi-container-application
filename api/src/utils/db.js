@@ -11,4 +11,4 @@ const connectDB = async() => {
     }
 }
 
-MediaSourceHandle.exports = connectDB 
+module.exports = connectDB 
